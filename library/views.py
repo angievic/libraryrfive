@@ -42,7 +42,7 @@ def search_book(request):
             # try in google api
             results = search_book_google_api(query)
             #try in another source
-            if results != []:
+            if len(results) == 0:
                 results = search_books_open_library(query)
 
         return JsonResponse({'results': results}, safe=False)
